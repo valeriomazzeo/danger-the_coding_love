@@ -8,8 +8,7 @@ Prints markdown containing a random post from [thecodinglove.com](http://thecodi
 
 ## Usage
 
-    Methods and attributes from this plugin are available in
-    your `Dangerfile` under the `the_coding_love` namespace.
+    the_coding_love.random
 
 ## How it looks
 

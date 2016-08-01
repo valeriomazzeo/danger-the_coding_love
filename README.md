@@ -11,9 +11,9 @@ Prints markdown containing a random post from [thecodinglove.com](http://thecodi
     Methods and attributes from this plugin are available in
     your `Dangerfile` under the `the_coding_love` namespace.
 
-## How it looks:
+## How it looks
 
-    ![alt text](https://cloud.githubusercontent.com/assets/1882080/16772431/260ffddc-484c-11e6-9464-858afefaa512.png "the_coding_love")
+![alt text](https://cloud.githubusercontent.com/assets/1882080/16772431/260ffddc-484c-11e6-9464-858afefaa512.png "the_coding_love")
 
 ## Development
 

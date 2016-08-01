@@ -1,5 +1,7 @@
 # danger-the_coding_love
 
+[![Gem Version](https://badge.fury.io/rb/danger-the_coding_love.svg)](https://badge.fury.io/rb/danger-the_coding_love) [![Build Status](https://travis-ci.org/valeriomazzeo/danger-the_coding_love.svg?branch=master)](https://travis-ci.org/valeriomazzeo/danger-the_coding_love)
+
 Prints markdown containing a random post from [thecodinglove.com](http://thecodinglove.com).
 
 ## Installation

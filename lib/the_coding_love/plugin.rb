@@ -12,20 +12,25 @@ module Danger
   class DangerTheCodingLove < Plugin
     # Prints markdown containing a random post from thecodinglove.com
     #
-    # @return  [void]
+    # @return  [text, image_url]
     #
     def random
-        @doc = Nokogiri::HTML(open("http://thecodinglove.com/random"))
-        @doc = @doc.at_xpath("//div[@id='post1']")
+      require 'open-uri'
+      require 'nokogiri'
 
-        text = @doc.at_xpath("//div/h3").text
-        image_url = @doc.at_xpath("//div[@class='bodytype']/p/img/@src").to_s
+      @doc = Nokogiri::HTML(open("http://thecodinglove.com/random"))
+      @doc = @doc.at_xpath("//div[@id='post1']")
 
-        markdown("------\n#{text}\n--\n![alt text](#{image_url} \"thecodinglove.com\")")
+      text = @doc.at_xpath("//div/h3").text
+      image_url = @doc.at_xpath("//div[@class='bodytype']/p/img/@src").to_s
+
+      markdown("------\n#{text}\n--\n![alt text](#{image_url} \"thecodinglove.com\")")
+
+      return text, image_url
     end
 
     def self.instance_name
-        to_s.gsub("Danger", "").danger_underscore.split("/").last
+      to_s.gsub("Danger", "").danger_underscore.split("/").last
     end
   end
 end

@@ -13,9 +13,11 @@ module Danger
       end
 
       it "prints a random post" do
-        @the_coding_love.random
+        post = @the_coding_love.random
 
-        expect(@dangerfile.status_report[:markdown]).not_to be_nil
+        expect(post[0]).not_to be_nil
+        expect(post[1]).not_to be_nil
+        expect(@dangerfile.status_report[:markdowns]).not_to be_nil
       end
     end
   end

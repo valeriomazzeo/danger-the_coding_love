@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    danger-the_coding_love (0.0.1)
-      danger (~> 2.0)
+    danger-the_coding_love (0.0.2)
+      danger (~> 2.1)
       nokogiri
 
 GEM

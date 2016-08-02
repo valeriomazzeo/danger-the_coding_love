@@ -9,7 +9,7 @@ module Danger
     describe 'with Dangerfile' do
       before do
         @dangerfile = testing_dangerfile
-        @the_coding_love = testing_dangerfile.the_coding_love
+        @the_coding_love = @dangerfile.the_coding_love
       end
 
       it "prints a random post" do

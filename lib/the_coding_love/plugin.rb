@@ -18,11 +18,14 @@ module Danger
       require 'open-uri'
       require 'nokogiri'
 
-      @doc = Nokogiri::HTML(open("http://thecodinglove.com/random"))
-      @doc = @doc.at_xpath("//div[@id='post1']")
+      @main_page_doc = Nokogiri::HTML(open("https://thecodinglove.com"))
+      random_gif_page_url = @main_page_doc.at_xpath("//a[@class='nav-link']/@href").to_s
+      
+      @doc = Nokogiri::HTML(open(random_gif_page_url))
+      @doc = @doc.at_xpath("//div[@class='blog-post']")
 
-      text = @doc.at_xpath("//div/h3").text
-      image_url = @doc.at_xpath("//div[@class='bodytype']/p/img/@src").to_s
+      text = @doc.at_xpath("//h1").text
+      image_url = @doc.at_xpath("//div[@class='blog-post-content']/p/img/@src").to_s
 
       markdown("------\n#{text}\n--\n![alt text](#{image_url} \"thecodinglove.com\")")
 

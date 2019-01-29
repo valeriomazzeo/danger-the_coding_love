@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'danger-plugin-api', '~> 1.0'
-  spec.add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'nokogiri', '>= 1.8.5'
 
   # General ruby development
   spec.add_development_dependency 'bundler', '~> 1.3'
@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.4'
 
   # Linting code and docs
-  spec.add_development_dependency "yard", "~> 0.8"
+  spec.add_development_dependency "yard", ">= 0.9.11"
 
   # Makes testing easy via `bundle exec guard`
   spec.add_development_dependency 'guard', '~> 2.14'

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require File.expand_path('spec_helper', __dir__)
 
+# Module tests
 module Danger
   describe Danger::DangerTheCodingLove do
     it 'should be a plugin' do
@@ -12,6 +15,13 @@ module Danger
         @the_coding_love = @dangerfile.the_coding_love
       end
 
+      it 'prints a random url' do
+        rnd_url = @the_coding_love.random_post_url
+        
+        # expect(rnd_url).to eq('') # for development, should not be empty
+        expect(rnd_url).not_to be_empty
+      end
+
       it 'prints a random post' do
         post = @the_coding_love.random
 
@@ -21,7 +31,7 @@ module Danger
       end
 
       it 'prints an image post' do
-        post = @the_coding_love.atUrl('https://thecodinglove.com/ai-in-cars-is-getting-better')
+        post = @the_coding_love.at_url('https://thecodinglove.com/ai-in-cars-is-getting-better')
 
         expect(post[0]).not_to be_empty
         expect(post[1]).not_to be_empty
@@ -30,7 +40,7 @@ module Danger
       end
 
       it 'prints a gif post' do
-        post = @the_coding_love.atUrl('https://thecodinglove.com/when-i-commit-push-right-after-someone-has')
+        post = @the_coding_love.at_url('https://thecodinglove.com/when-i-commit-push-right-after-someone-has')
 
         expect(post[0]).not_to be_empty
         expect(post[1]).not_to be_empty

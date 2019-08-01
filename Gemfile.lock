@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    danger-the_coding_love (0.0.6)
+    danger-the_coding_love (0.0.7)
       danger-plugin-api (~> 1.0)
       nokogiri (>= 1.8.5)
 

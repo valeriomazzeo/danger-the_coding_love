@@ -17,10 +17,17 @@ module Danger
     # @return  [text, image_url]
     #
     def random
-      text, image_url = at_url(random_post_url)
+      rnd_url = random_post_url
+      text, image_url = at_url(rnd_url)
 
-      markdown("------\n#{text}\n--\n![alt text](#{image_url} \"thecodinglove.com\")")
-
+      markdown(
+        "------\n"\
+        "#{text}\n"\
+        "--\n"\
+        "![Funny image](#{image_url})\n"\
+        "--\n"\
+        "*Source: [The Coding Love](#{rnd_url})*"
+      )
       [text, image_url]
     end
 

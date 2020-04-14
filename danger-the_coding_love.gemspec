@@ -19,11 +19,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'danger-plugin-api', '~> 1.0'
-  spec.add_runtime_dependency 'nokogiri', '>= 1.8.5'
+  spec.add_runtime_dependency 'nokogiri', '>= 1.10.8'
 
   # General ruby development
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'bundler', '~> 2.1'
+  spec.add_development_dependency 'rake', '~> 12.3'
 
   # Testing support
   spec.add_development_dependency 'rspec', '~> 3.4'

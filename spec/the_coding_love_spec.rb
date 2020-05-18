@@ -15,13 +15,6 @@ module Danger
         @the_coding_love = @dangerfile.the_coding_love
       end
 
-      it 'prints a random url' do
-        rnd_url = @the_coding_love.random_post_url
-
-        # expect(rnd_url).to eq('') # for development, should not be empty
-        expect(rnd_url).not_to be_empty
-      end
-
       it 'prints a random post' do
         post = @the_coding_love.random
 

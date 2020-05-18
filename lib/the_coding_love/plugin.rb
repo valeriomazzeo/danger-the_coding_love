@@ -17,7 +17,7 @@ module Danger
     # @return  [text, image_url]
     #
     def random
-      rnd_url = random_post_url
+      rnd_url = 'https://thecodinglove.com/random'
       text, image_url = at_url(rnd_url)
 
       markdown(
@@ -31,33 +31,22 @@ module Danger
       [text, image_url]
     end
 
-    # Returns url to random post from thecodinglove.com
-    #
-    # @return [url]
-    #
-    def random_post_url
-      require 'open-uri'
-      require 'nokogiri'
-      @main_page_doc = Nokogiri::HTML(URI.open('https://thecodinglove.com'))
-      random_love_page_url = @main_page_doc.at_xpath(
-        "//ul[@class='navbar-nav mr-auto']/li/a/@href"
-      ).to_s
-      random_love_page_url
-    end
-
     # Returns text and url containing given post from thecodinglove.com url
     #
     # @return  [text, image_url]
     #
     def at_url(love_page_url)
+      require 'open-uri'
+      require 'nokogiri'
+
       raise 'Empty coding love page URL' if love_page_url.empty?
 
       @doc = Nokogiri::HTML(URI.parse(love_page_url).open)
-      @doc = @doc.at_xpath("//div[@class='blog-post content-single']")
+      @article = @doc.at_xpath("//article[@class='blog-post content-single']")
 
-      text = @doc.at_xpath('//h1').text
-      image_url = @doc.at_xpath("//div[@class='blog-post-content']/p/img/@src").to_s
-      video_gif_url = @doc.at_xpath("//div[@class='blog-post-content']/p/video//object[@type='image/gif']/@data").to_s
+      text = @article.at_xpath('//h1').text
+      image_url = @article.at_xpath("//div[@class='blog-post-content']/p/img/@data-src").to_s
+      video_gif_url = @article.at_xpath("//div[@class='blog-post-content']/p/video//object[@type='image/gif']/@data").to_s
 
       return [text, video_gif_url] if image_url.empty?
 
